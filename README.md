@@ -41,9 +41,9 @@ The default locale is the one set as per the Laravel config('app.locale') file b
 ```
 Money::make('Price')->locale('en_US');
 ```
-By default we assume you are storing values as minor units (eg. £100 = 10000p) but you can change this with notMinor()
+By default we assume you are storing values not as minor units, but you can change this with minor(true)
 ```
-Money::make('Price')->notMinor();
+Money::make('Price')->minor(true);
 ```
 This will automatically format all entered values into minor units so remember to remove any laravel set/get attribute methods on your models!
 
