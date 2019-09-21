@@ -1,0 +1,31 @@
+{
+    "name": "everestmx/nova-money-field",
+    "description": "A Laravel Nova field.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "brick/money": "^0.3.3",
+        "symfony/intl": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Everestmx\\NovaMoneyField\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Everestmx\\NovaMoneyField\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
