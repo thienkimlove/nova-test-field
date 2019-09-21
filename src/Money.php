@@ -110,8 +110,8 @@ class Money extends Field
      */
     protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
     {
-        if ($request->exists($requestAttribute) && $this->minorUnits) {
-            $model->{$attribute} = $request[$requestAttribute] * 100;
+        if ($request->exists($requestAttribute)) {
+            $model->{$attribute} = $this->minorUnits ? $request[$requestAttribute] * 100 : $request[$requestAttribute];
         }
     }
 
