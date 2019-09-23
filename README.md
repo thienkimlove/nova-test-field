@@ -11,7 +11,7 @@ A custom money field for a Laravel\Nova application I am working on. The default
 You can install the package into your Nova application via composer:
 
 ```
-compser require everestmx/nova-money-field
+composer require everestmx/nova-money-field
 ```
 
 ## Using
