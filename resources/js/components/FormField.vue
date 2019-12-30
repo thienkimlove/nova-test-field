@@ -4,7 +4,7 @@
             <input
                 :id="field.name"
                 type="text"
-                class="w-full form-control form-input form-input-bordered"
+                class="w-full form-control form-input form-input-bordered quan-tieungao"
                 :class="errorClasses"
                 :placeholder="field.name"
                 v-model="value"
@@ -14,12 +14,27 @@
 </template>
 
 <script>
+
+import Inputmask from "inputmask";
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
+
+    mounted() {
+        Inputmask({
+            'alias': 'decimal',
+            'groupSeparator': '.',
+            'autoGroup': true,
+            'digits': 2,
+            'digitsOptional': false,
+            'placeholder': '0',
+            'prefix': 'VND ',
+            'rightAlignNumerics': false
+        }).mask(this.$refs.input);
+    },
 
     methods: {
         /*
