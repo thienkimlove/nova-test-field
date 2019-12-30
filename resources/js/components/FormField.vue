@@ -2,64 +2,59 @@
     <default-field :field="field" :errors="errors">
         <template slot="field">
             <input
-                :id="field.name"
-                type="text"
-                class="w-full form-control form-input form-input-bordered quan-tieungao"
-                :class="errorClasses"
-                :placeholder="field.name"
-                v-model.lazy="value"
-                v-money="money"
-            /> {{value}}
+                    :id="field.name"
+                    type="text"
+                    class="w-full form-control form-input form-input-bordered"
+                    :class="errorClasses"
+                    :placeholder="field.name"
+                    v-model="value"
+            />
         </template>
     </default-field>
 </template>
 
 <script>
-import {VMoney} from 'v-money'
-import { FormField, HandlesValidationErrors } from 'laravel-nova'
+    import Inputmask from 'inputmask';
+    import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
-export default {
-    mixins: [FormField, HandlesValidationErrors],
+    export default {
+        mixins: [FormField, HandlesValidationErrors],
 
-    props: ['resourceName', 'resourceId', 'field'],
+        props: ['resourceName', 'resourceId', 'field'],
 
-    data () {
-        return {
-            price: 123.45,
-            money: {
-                decimal: ',',
-                thousands: '.',
-                prefix: 'R$ ',
-                suffix: ' #',
-                precision: 2,
-                masked: false /* doesn't work with directive */
-            }
-        }
-    },
+        mounted() {
+            var im = new Inputmask({'alias': 'decimal',
+                'groupSeparator': '.',
+                'autoGroup': true,
+                'digits': 0,
+                'digitsOptional': false,
+                'placeholder': '0',
+                'rightAlign': false
+            });
 
-    directives: {money: VMoney},
-
-    methods: {
-        /*
-         * Set the initial, internal value for the field.
-         */
-        setInitialValue() {
-            this.value = this.field.value || ''
+            im.mask(document.getElementById(this.field.name));
         },
 
-        /**
-         * Fill the given FormData object with the field's internal value.
-         */
-        fill(formData) {
-            formData.append(this.field.attribute, this.value || '')
-        },
+        methods: {
+            /*
+             * Set the initial, internal value for the field.
+             */
+            setInitialValue() {
+                this.value = this.field.value || ''
+            },
 
-        /**
-         * Update the field's internal value.
-         */
-        handleChange(value) {
-            this.value = value
+            /**
+             * Fill the given FormData object with the field's internal value.
+             */
+            fill(formData) {
+                formData.append(this.field.attribute, this.value || '')
+            },
+            /**
+             * Update the field's internal value.
+             */
+            handleChange(value) {
+                this.value = value;
+            },
         },
-    },
-}
+    }
 </script>

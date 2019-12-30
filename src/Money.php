@@ -98,6 +98,11 @@ class Money extends Field
         return $money->formatTo($this->locale);
     }
 
+    private function replaceDot($value)
+    {
+        return (int) str_replace('.', '', $value);
+    }
+
     /**
      * Hydrate the given attribute on the model based on the incoming request.
      *
@@ -111,7 +116,7 @@ class Money extends Field
     protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)
     {
         if ($request->exists($requestAttribute)) {
-            $model->{$attribute} = $this->minorUnits ? $request[$requestAttribute] * 100 : $request[$requestAttribute];
+            $model->{$attribute} = $this->minorUnits ? $request[$requestAttribute] * 100 : $this->replaceDot($request[$requestAttribute]);
         }
     }
 

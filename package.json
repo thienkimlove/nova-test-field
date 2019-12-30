@@ -16,7 +16,6 @@
     },
     "dependencies": {
         "vue": "^2.5.0",
-        "vue-money": "0.8.1",
         "inputmask": "^4.0.6"
     }
 }
