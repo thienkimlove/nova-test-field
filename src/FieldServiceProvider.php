@@ -1,6 +1,6 @@
 <?php
 
-namespace Thienkimlove\NovaMoneyField;
+namespace Thienkimlove\NovaTestField;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

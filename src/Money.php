@@ -1,6 +1,6 @@
 <?php
 
-namespace Thienkimlove\NovaMoneyField;
+namespace Thienkimlove\NovaTestField;
 
 use Brick\Math\RoundingMode;
 use Brick\Money\Exception\UnknownCurrencyException;

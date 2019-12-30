@@ -1,5 +1,5 @@
 {
-    "name": "thienkimlove/nova-money-field-1",
+    "name": "thienkimlove/nova-test-field",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
@@ -13,13 +13,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Thienkimlove\\NovaMoneyField\\": "src/"
+            "Thienkimlove\\NovaTestField\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Thienkimlove\\NovaMoneyField\\FieldServiceProvider"
+                "Thienkimlove\\NovaTestField\\FieldServiceProvider"
             ]
         }
     },
