@@ -49,3 +49,92 @@ This will automatically format all entered values into minor units so remember t
 
 ## Advanced
 The defaults loaded for this package (Currency, Locale, etc) are loaded within the 'loadDefaults' method within src\Money.php
+
+### About Nova Packages and everything.
+
+* To make `composer update` with nova package work immediately
+
+we should get the latest commit first 6 characters.
+
+and using `composer require thienkimlove/nova-test-field:dev-master#78ff77`
+
+* To make Laravel Nova work directly after edit nova packages 
+
+```textmate
+cd ./vendor/laravel/nova
+mv webpack.mix.js.dist webpack.mix.js
+npm install
+npm run dev
+rm -rf node_modules
+cd -
+php artisan nova:publish
+```
+
+and go back `./vendor/laravel/nova` and run `npm run watch`
+
+Go to packages and run 
+```textmate
+npm install 
+npm run dev or npm run watch
+```
+
+* After that we can install vuedevtool from chrome.
+
+*  Add packages to packagist `https://packagist.org/packages/submit`
+
+* Link about example which not implement but learn alot
+
+`https://github.com/avarixe/myfifa-vue/blob/9ccb0e00efbad03c163cef5c0aa8b446e370660e/helpers/VMoneyField.vue`
+
+*  Not implement `https://vuejs-tips.github.io/vue-the-mask/`
+
+* Nova doc about npm
+
+```textmate
+Your Nova field contains a webpack.mix.js file, which is generated when Nova creates your field. You may build your field using the NPM dev and prod commands:
+
+// Compile your assets for local development...
+npm run dev
+
+// Compile and minify your assets...
+npm run prod
+In addition, you may run the NPM watch command to auto-compile your assets when they are changed:
+
+npm run watch
+```
+
+*  input mask nova but simple
+
+```textmate
+https://github.com/wemersonrv/input-mask/blob/master/resources/js/components/FormField.vue
+```
+
+* All about input mask `https://github.com/RobinHerbots/Inputmask`
+
+* Using from this
+
+```textmate
+https://github.com/gnatishen/ticketService/blob/fa92060c7ab38b8a278411ca3b7dea875c1d839e/resources/js/components/ClientFormComponent.vue
+```
+
+*  Not try 
+
+```textmate
+import Inputmask from "inputmask";
+
+export default {
+  mounted() {
+    let parentSelector = this.$refs.ipInput
+    let selector = parentSelector.$el.children[1];
+    Inputmask({"mask": "999.999.999.999"}).mask(selector);
+  },
+}
+```
+
+* another
+
+```textmate
+https://github.com/wemersonrv/input-mask/blob/master/resources/js/components/FormField.vue
+https://novapackages.com/packages/everestmx/nova-money-field
+
+```
