@@ -24,6 +24,8 @@ export default {
     props: ['resourceName', 'resourceId', 'field'],
 
     mounted() {
+        console.log(this.$el);
+        console.log("here");
         Inputmask({
             'alias': 'decimal',
             'groupSeparator': '.',
