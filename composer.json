@@ -1,5 +1,5 @@
 {
-    "name": "everestmx/nova-money-field",
+    "name": "thienkimlove/nova-money-field-1",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
@@ -13,13 +13,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Everestmx\\NovaMoneyField\\": "src/"
+            "Thienkimlove\\NovaMoneyField\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Everestmx\\NovaMoneyField\\FieldServiceProvider"
+                "Thienkimlove\\NovaMoneyField\\FieldServiceProvider"
             ]
         }
     },
