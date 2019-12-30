@@ -7,15 +7,15 @@
                 class="w-full form-control form-input form-input-bordered quan-tieungao"
                 :class="errorClasses"
                 :placeholder="field.name"
-                v-model="value"
-            />
+                v-model.lazy="value"
+                v-money="money"
+            /> {{value}}
         </template>
     </default-field>
 </template>
 
 <script>
-
-import Inputmask from "inputmask";
+import {VMoney} from 'v-money'
 import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
 export default {
@@ -23,20 +23,21 @@ export default {
 
     props: ['resourceName', 'resourceId', 'field'],
 
-    mounted() {
-        console.log(this.$el);
-        console.log("here");
-        Inputmask({
-            'alias': 'decimal',
-            'groupSeparator': '.',
-            'autoGroup': true,
-            'digits': 2,
-            'digitsOptional': false,
-            'placeholder': '0',
-            'prefix': 'VND ',
-            'rightAlignNumerics': false
-        }).mask(this.$refs.input);
+    data () {
+        return {
+            price: 123.45,
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: 'R$ ',
+                suffix: ' #',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            }
+        }
     },
+
+    directives: {money: VMoney},
 
     methods: {
         /*
