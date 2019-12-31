@@ -138,3 +138,21 @@ https://github.com/wemersonrv/input-mask/blob/master/resources/js/components/For
 https://novapackages.com/packages/everestmx/nova-money-field
 
 ```
+
+* **Important**
+
+Please note that after edit nova packages github code,
+
+we must run
+
+```text
+npm run dev 
+npm run prod
+```
+to rebuild `field.js`
+
+after that we commit to github and using commit-hash to update composer
+
+```text
+composer require thienkimlove/nova-test-field:dev-master#<commit-hash>
+```
